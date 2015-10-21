@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <ui:composition template="/WEB-INF/templates/default.xhtml">
+            <ui:define name="content">
+            	<div>
+	                <h:outputText value="#{msg['userAdd.title']}"/>
+            	</div>
+            	<div class="height10"></div>
+                <h:outputText value="#{msg['userAdd.inputUserInfo']}"/>
+                <div class="height10"></div>
+                <h:form id="form">
+                    <p:panelGrid id="inputPanel" styleClass="ui-noborder">
+                        <p:row>
+                            <p:column styleClass="user-add-input-panel-grid-label">
+                                <h:outputText value="#{msg['userAdd.inputPanel.loginName']}" styleClass="padding-right10"/>
+                                <h:outputText value="*"/>
+                            </p:column>
+                            <p:column styleClass="user-add-input-panel-grid-input">
+                                <p:inputText id="loginName" value="#{userAddView.user.loginName}"
+                                             styleClass="user-add-input-panel-grid-login-name-input-text"/>
+                            </p:column>
+                            <p:column styleClass="user-add-input-panel-grid-message">
+                                <p:message for="loginName"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column styleClass="user-add-input-panel-grid-label">
+                                <h:outputText value="#{msg['userAdd.inputPanel.name']}" styleClass="padding-right10"/>
+                                <h:outputText value="*"/>
+                            </p:column>
+                            <p:column styleClass="user-add-input-panel-grid-input">
+                                <h:outputText value="#{msg['userAdd.inputPanel.lastName']}"
+                                              styleClass="user-add-input-panel-grid-last-name-label"/>
+                                <p:inputText id="lastName" value="#{userAddView.user.lastName}"
+                                             styleClass="user-add-input-panel-grid-last-name-input-text"/>
+                                <h:outputText value="#{msg['userAdd.inputPanel.firstName']}"
+                                              styleClass="user-add-input-panel-grid-first-name-label"/>
+                                <p:inputText id="firstName" value="#{userAddView.user.firstName}"
+                                             styleClass="user-add-input-panel-grid-first-name-input-text"/>
+                            </p:column>
+                            <p:column styleClass="user-add-input-panel-grid-message">
+                                <p:message for="firstName"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column styleClass="user-add-input-panel-grid-label">
+                                <h:outputText value="#{msg['userAdd.inputPanel.password']}" styleClass="padding-right10"/>
+                                <h:outputText value="*"/>
+                            </p:column>
+                            <p:column styleClass="user-add-input-panel-grid-input">
+                                <p:inputText id="password" value="#{userAddView.password}"
+                                             styleClass="user-add-input-panel-grid-password-input-text"/>
+                            </p:column>
+                            <p:column styleClass="user-add-input-panel-grid-message">
+                                <p:message for="password"/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                    <div class="height30"></div>
+                    <p:panelGrid columns="4" styleClass="ui-noborder user-add-button-panel-grid">
+                        <div class="width10"></div>
+                        <p:button value="#{msg.back}" icon="ui-icon-carat-1-w" outcome="/protected/home"/>
+                        <div class="width6"></div>
+                        <p:commandButton value="#{msg.register}" action="#{userAddView.save()}"
+                                         update="inputPanel"/>
+                    </p:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

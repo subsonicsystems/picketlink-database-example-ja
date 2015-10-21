@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <ui:composition template="/WEB-INF/templates/default.xhtml">
+            <ui:define name="content">
+                <div>
+	                <h:outputText value="#{msg['userEdit.title']}"/>
+                </div>
+                <div class="height10"></div>
+                <h:outputText value="#{msg['userEdit.inputUserInfo']}"/><br/>
+                <h:outputText value="#{msg['userEdit.passwordDescription']}"/>
+                <div class="height10"></div>
+                <h:form id="form">
+                    <h:inputHidden value="#{userEditView.user.loginName}"/>
+                    <p:panelGrid id="inputPanel" styleClass="ui-noborder">
+                        <p:row>
+                            <p:column styleClass="user-edit-input-panel-grid-label">
+                                <h:outputText value="#{msg['userEdit.inputPanel.loginName']}"/>
+                            </p:column>
+                            <p:column styleClass="user-edit-input-panel-grid-input">
+                                <h:outputText value="#{userEditView.user.loginName}"/>
+                            </p:column>
+                            <p:column styleClass="user-edit-input-panel-grid-message">
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column styleClass="user-edit-input-panel-grid-label">
+                                <h:outputText value="#{msg['userEdit.inputPanel.name']}" styleClass="padding-right10"/>
+                                <h:outputText value="*"/>
+                            </p:column>
+                            <p:column styleClass="user-edit-input-panel-grid-input">
+                                <h:outputText value="#{msg['userEdit.inputPanel.lastName']}"
+                                              styleClass="user-edit-input-panel-grid-last-name-label"/>
+                                <p:inputText id="lastName" value="#{userEditView.user.lastName}"
+                                             styleClass="user-edit-input-panel-grid-last-name-input-text"/>
+                                <h:outputText value="#{msg['userEdit.inputPanel.firstName']}"
+                                              styleClass="user-edit-input-panel-grid-first-name-label"/>
+                                <p:inputText id="firstName" value="#{userEditView.user.firstName}"
+                                             styleClass="user-edit-input-panel-grid-first-name-input-text"/>
+                            </p:column>
+                            <p:column styleClass="user-edit-input-panel-grid-message">
+                                <p:message for="firstName"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column styleClass="user-edit-input-panel-grid-label">
+                                <h:outputText value="#{msg['userEdit.inputPanel.password']}"/>
+                            </p:column>
+                            <p:column styleClass="user-edit-input-panel-grid-input">
+                                <p:inputText id="password" value="#{userEditView.password}"
+                                             styleClass="user-edit-input-panel-grid-password-input-text"/>
+                            </p:column>
+                            <p:column styleClass="user-edit-input-panel-grid-message">
+                                <p:message for="password"/>
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                    <div class="height30"></div>
+                    <p:panelGrid columns="6" styleClass="ui-noborder user-edit-button-panel-grid">
+                        <div class="width10"></div>
+                        <p:button value="#{msg.back}" icon="ui-icon-carat-1-w" outcome="/protected/home"/>
+                        <div class="width6"></div>
+                        <p:commandButton value="#{msg.update}" action="#{userEditView.update()}"
+                                         update="inputPanel"/>
+                        <div class="width6"></div>
+                        <p:commandButton type="button" value="#{msg.remove}"
+                                         rendered="#{userEditView.user.loginName != identity.account.loginName}"
+                                         onclick="PF('userRemoveDialog').show()"/>
+                    </p:panelGrid>
+                    <p:confirmDialog widgetVar="userRemoveDialog" header="#{msg['userEdit.userRemoveDialog.header']}"
+                                     message="#{msg['userEdit.userRemoveDialog.message']}" severity="alert">
+                        <p:commandButton value="#{msg.yes}" action="#{userEditView.remove()}"
+                                         oncomplete="PF('userRemoveDialog').hide()"/>
+                        <p:commandButton type="button" value="#{msg.no}"
+                                         onclick="PF('userRemoveDialog').hide()"/>
+                    </p:confirmDialog>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

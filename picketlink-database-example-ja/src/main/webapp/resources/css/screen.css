@@ -1,0 +1,130 @@
+body,
+.ui-widget,
+.ui-widget input,
+.ui-widget button {
+    font-family: Meiryo, Arial;
+    font-size: 13px;
+}
+
+.ui-dialog-title {
+    font-family: Meiryo, Arial !important;
+    font-size: 14px !important;
+}
+
+.ui-dialog-titlebar-close {
+	margin-top: 5px !important;
+}
+
+.ui-confirm-dialog-severity {
+	margin-top: 3px;	
+}
+
+a:link,
+a:visited {
+    color: #337ab7;
+}
+
+a:hover,
+a:active {
+    color: #23527c;
+}
+
+.width6 {
+    width: 6px;
+}
+
+.width10 {
+    width: 10px;
+}
+
+.height10 {
+    height: 10px;
+}
+
+.height30 {
+    height: 30px;
+}
+
+.padding-right10 {
+	padding-right: 10px;
+}
+
+.user-add-input-panel-grid-label {
+	width: 100px;
+}
+
+.user-add-input-panel-grid-input {
+    width: 240px;
+}
+
+.user-add-input-panel-grid-message {
+    width: 300px;
+}
+
+.user-add-input-panel-grid-login-name-input-text {
+    width: 160px;
+}
+
+.user-add-input-panel-grid-last-name-label {
+    padding-right: 5px;
+}
+
+.user-add-input-panel-grid-last-name-input-text {
+    width: 80px;
+}
+
+.user-add-input-panel-grid-first-name-label {
+	padding-left: 10px;
+    padding-right: 5px;
+}
+
+.user-add-input-panel-grid-first-name-input-text {
+    width: 80px;
+}
+
+.user-add-input-panel-grid-password-input-text {
+    width: 160px;
+}
+
+.user-add-button-panel-grid tr,
+.user-add-button-panel-grid td {
+    padding: 0 !important;
+}
+
+.user-edit-input-panel-grid-label {
+	width: 100px;
+}
+
+.user-edit-input-panel-grid-input {
+    width: 240px;
+}
+
+.user-edit-input-panel-grid-message {
+    width: 300px;
+}
+
+.user-edit-input-panel-grid-last-name-label {
+    padding-right: 5px;
+}
+
+.user-edit-input-panel-grid-last-name-input-text {
+    width: 80px;
+}
+
+.user-edit-input-panel-grid-first-name-label {
+	padding-left: 10px;
+    padding-right: 5px;
+}
+
+.user-edit-input-panel-grid-first-name-input-text {
+    width: 80px;
+}
+
+.user-edit-input-panel-grid-password-input-text {
+    width: 160px;
+}
+
+.user-edit-button-panel-grid tr,
+.user-edit-button-panel-grid td {
+    padding: 0 !important;
+}
