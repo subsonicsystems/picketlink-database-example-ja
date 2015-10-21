@@ -41,8 +41,8 @@ public class SecurityInitializer {
 		}
 
 		user = new User("admin");
-		user.setFirstName("Jane");
-		user.setLastName("Doe");
+		user.setFirstName("1");
+		user.setLastName("管理者");
 
 		identityManager.add(user);
 		identityManager.updateCredential(user, new Password("abcd1234"));
